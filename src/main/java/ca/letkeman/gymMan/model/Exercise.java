@@ -14,107 +14,115 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="exercise")
+@Table(name = "exercise")
 final public class Exercise {
-    @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
-    @ManyToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="creatorid")
-    private User creator;
-    
-    private LocalDateTime createDateTime;
-    @Column(name="isActive")
-    private Boolean active;
-    @Column(name="isDeleted")
-    private Boolean deleted;
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-    private String name;
+  @ManyToOne(cascade = {CascadeType.ALL})
+  @JoinColumn(name = "creatorid")
+  private User creator;
 
-    public Integer getId() {
-        return id;
-    }
+  private LocalDateTime createDateTime;
+  //@Column(name="isActive")
+  private Boolean active;
+  //@Column(name="isDeleted")
+  private Boolean deleted;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  private String name;
 
-    public User getCreator() {
-        return creator;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Boolean isActive() {
-        return active;
-    }
+  public User getCreator() {
+    return creator;
+  }
 
-    public void isActive(Boolean active) {
-        this.active = active;
-    }
+  public void setCreator(User creator) {
+    this.creator = creator;
+  }
 
-    public Boolean isDeleted() {
-        return deleted;
-    }
+  public Boolean isActive() {
+    return active;
+  }
 
-    public void isDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
+  public void isActive(Boolean active) {
+    this.active = active;
+  }
 
-    public LocalDateTime getCreateDateTime() {
-        return createDateTime;
-    }
+  public Boolean isDeleted() {
+    return deleted;
+  }
 
-    public void setCreateDateTime(LocalDateTime createDateTime) {
-        this.createDateTime = createDateTime;
-    }
+  public void isDeleted(Boolean deleted) {
+    this.deleted = deleted;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public LocalDateTime getCreateDateTime() {
+    return createDateTime;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setCreateDateTime(LocalDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Exercise exercise = (Exercise) o;
-        return getCreator().equals(exercise.getCreator()) && getCreateDateTime().equals(exercise.getCreateDateTime()) && isActive().equals(exercise.isActive()) && isDeleted().equals(exercise.isDeleted()) && getName().equals(exercise.getName());
-    }
+  public String getName() {
+    return name;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getCreator(), getCreateDateTime(), isActive(), isDeleted(), getName());
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", Exercise.class.getSimpleName() + "[", "]")
-                .add("id=" + getId())
-                .add("creator=" + getCreator())
-                .add("createDateTime=" + getCreateDateTime())
-                .add("active=" + isActive())
-                .add("deleted=" + isDeleted())
-                .add("name='" + getName() + "'")
-                .toString();
-    }
+  @Override
+  public boolean equals(Object o) {
+      if (this == o) {
+          return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+          return false;
+      }
+    Exercise exercise = (Exercise) o;
+    return getCreator().equals(exercise.getCreator()) && getCreateDateTime().equals(
+        exercise.getCreateDateTime()) && isActive().equals(exercise.isActive())
+        && isDeleted().equals(exercise.isDeleted()) && getName().equals(exercise.getName());
+  }
 
-    public Exercise(Integer id, User creator, LocalDateTime createDateTime, Boolean active, Boolean deleted, String name) {
-        this.setId(id);
-        this.setCreator(creator);
-        this.setCreateDateTime(createDateTime);
-        this.isActive(active);
-        this.isDeleted(deleted);
-        this.setName(name);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(getCreator(), getCreateDateTime(), isActive(), isDeleted(), getName());
+  }
 
-    public Exercise() {
-    }
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", Exercise.class.getSimpleName() + "[", "]")
+        .add("id=" + getId())
+        .add("creator=" + getCreator())
+        .add("createDateTime=" + getCreateDateTime())
+        .add("active=" + isActive())
+        .add("deleted=" + isDeleted())
+        .add("name='" + getName() + "'")
+        .toString();
+  }
+
+  public Exercise(Long id, User creator, LocalDateTime createDateTime, Boolean active,
+      Boolean deleted, String name) {
+    this.setId(id);
+    this.setCreator(creator);
+    this.setCreateDateTime(createDateTime);
+    this.isActive(active);
+    this.isDeleted(deleted);
+    this.setName(name);
+  }
+
+  public Exercise() {
+  }
 }

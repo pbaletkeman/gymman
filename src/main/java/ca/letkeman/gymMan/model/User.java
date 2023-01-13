@@ -18,144 +18,154 @@ import javax.persistence.Table;
 @Table(name = "\"user\"")
 
 final public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private Long id;
-    @ManyToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="creatorId")
-    private User creator;
-    @Column(name="isActive")
-    private Boolean active;
-    @Column(name="isDeleted")
-    private Boolean deleted;
-    private LocalDateTime createDateTime;
-    private String email;
-    private String password;
-    private String firstName;
-    private String lastName;
 
-    /* */
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
+  private Long id;
+  @ManyToOne(cascade = {CascadeType.ALL})
+  @JoinColumn(name = "creatorId")
+  private User creator;
+  //@Column(name="isActive")
+  private Boolean active;
+  //@Column(name="isDeleted")
+  private Boolean deleted;
+  private LocalDateTime createDateTime;
+  private String email;
+  private String password;
+  private String firstName;
+  private String lastName;
 
-    public Long getId() {
-        return id;
-    }
+  /* */
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public User getCreator() {
-        return creator;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
+  public User getCreator() {
+    return creator;
+  }
 
-    public Boolean isActive() {
-        return active;
-    }
+  public void setCreator(User creator) {
+    this.creator = creator;
+  }
 
-    public void isActive(Boolean active) {
-        this.active = active;
-    }
+  public Boolean isActive() {
+    return active;
+  }
 
-    public Boolean isDeleted() {
-        return deleted;
-    }
+  public void isActive(Boolean active) {
+    this.active = active;
+  }
 
-    public void isDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
+  public Boolean isDeleted() {
+    return deleted;
+  }
 
-    public LocalDateTime getCreateDateTime() {
-        return createDateTime;
-    }
+  public void isDeleted(Boolean deleted) {
+    this.deleted = deleted;
+  }
 
-    public void setCreateDateTime(LocalDateTime createDateTime) {
-        this.createDateTime = createDateTime;
-    }
+  public LocalDateTime getCreateDateTime() {
+    return createDateTime;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setCreateDateTime(LocalDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public String getFirstName() {
-        return firstName;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    public String getLastName() {
-        return lastName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    /* */
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return isActive().equals(user.isActive()) && isDeleted().equals(user.isDeleted()) && getCreateDateTime().equals(user.getCreateDateTime()) && getEmail().equals(user.getEmail()) && getPassword().equals(user.getPassword()) && Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName());
-    }
+  /* */
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(isActive(), isDeleted(), getCreateDateTime(), getEmail(), getPassword(), getFirstName(), getLastName());
-    }
+  @Override
+  public boolean equals(Object o) {
+      if (this == o) {
+          return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+          return false;
+      }
+    User user = (User) o;
+    return isActive().equals(user.isActive()) && isDeleted().equals(user.isDeleted())
+        && getCreateDateTime().equals(user.getCreateDateTime()) && getEmail().equals(
+        user.getEmail()) && getPassword().equals(user.getPassword()) && Objects.equals(
+        getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName());
+  }
 
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
-                .add("id=" + getId())
-                .add("creator=" + getCreator())
-                .add("active=" + isActive())
-                .add("deleted=" + isDeleted())
-                .add("createDateTime=" + getCreateDateTime())
-                .add("email='" + getEmail() + "'")
-                .add("password='" + getPassword() + "'")
-                .add("firstName='" + getFirstName() + "'")
-                .add("lastName='" + getLastName() + "'")
-                .toString();
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(isActive(), isDeleted(), getCreateDateTime(), getEmail(), getPassword(),
+        getFirstName(), getLastName());
+  }
 
-    public User(Long id, User creator, Boolean active, Boolean deleted, LocalDateTime createDateTime, String email, String password, String firstName, String lastName) {
-        this.setId(id);
-        this.setCreator(creator);
-        this.isActive(active);
-        this.isDeleted(deleted);
-        this.setCreateDateTime(createDateTime);
-        this.setEmail(email);
-        this.setPassword(password);
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-    }
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+        .add("id=" + getId())
+        .add("creator=" + getCreator())
+        .add("active=" + isActive())
+        .add("deleted=" + isDeleted())
+        .add("createDateTime=" + getCreateDateTime())
+        .add("email='" + getEmail() + "'")
+        .add("password='" + getPassword() + "'")
+        .add("firstName='" + getFirstName() + "'")
+        .add("lastName='" + getLastName() + "'")
+        .toString();
+  }
 
-    public User() {
-    }
+  public User(Long id, User creator, Boolean active, Boolean deleted, LocalDateTime createDateTime,
+      String email, String password, String firstName, String lastName) {
+    this.setId(id);
+    this.setCreator(creator);
+    this.isActive(active);
+    this.isDeleted(deleted);
+    this.setCreateDateTime(createDateTime);
+    this.setEmail(email);
+    this.setPassword(password);
+    this.setFirstName(firstName);
+    this.setLastName(lastName);
+  }
+
+  public User() {
+  }
 
 
 
-    /* */
+  /* */
 
 }

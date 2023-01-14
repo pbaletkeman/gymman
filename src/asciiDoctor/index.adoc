@@ -1,0 +1,7 @@
+= Getting Started With Spring REST Docs
+
+This is an example output for a service running at http://localhost:8080/users:
+
+:toc:
+
+operation::SampleJUnit5ApplicationTests\indexExample[]

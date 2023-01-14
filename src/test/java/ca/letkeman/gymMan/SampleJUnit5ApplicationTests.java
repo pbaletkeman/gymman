@@ -32,7 +32,9 @@ public class SampleJUnit5ApplicationTests {
   @BeforeEach
   public void setUp(RestDocumentationContextProvider restDocumentation) {
     this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
-        .apply(documentationConfiguration(restDocumentation)).build();
+        .apply(documentationConfiguration(restDocumentation))
+        .alwaysDo(document("{ClassName}/{methodName}"))
+        .build();
   }
 
   @Test

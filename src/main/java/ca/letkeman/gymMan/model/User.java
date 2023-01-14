@@ -14,8 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name="user")
-@Table(name = "\"user\"")
+@Table(name = "\"user\"") /* user is a keyword, needs to be escaped */
 
 final public class User {
 
@@ -26,17 +25,13 @@ final public class User {
   @ManyToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name = "creatorId")
   private User creator;
-  //@Column(name="isActive")
   private Boolean active;
-  //@Column(name="isDeleted")
   private Boolean deleted;
   private LocalDateTime createDateTime;
   private String email;
   private String password;
   private String firstName;
   private String lastName;
-
-  /* */
 
   public Long getId() {
     return id;

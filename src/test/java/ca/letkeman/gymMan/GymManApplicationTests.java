@@ -1,4 +1,4 @@
-package ca.letkeman.gymman;
+package ca.letkeman.gymMan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,7 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 class GymManApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() throws Exception {
 	}
 
 }
+/*
+
+ */

@@ -27,9 +27,7 @@ final public class Exercise {
   private User creator;
 
   private LocalDateTime createDateTime;
-  //@Column(name="isActive")
   private Boolean active;
-  //@Column(name="isDeleted")
   private Boolean deleted;
 
   private String name;

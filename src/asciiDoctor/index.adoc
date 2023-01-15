@@ -4,4 +4,8 @@ This is an example output for a service running at http://localhost:8080/users:
 
 :toc:
 
-operation::SampleJUnit5ApplicationTests\indexExample[]
+== User Index
+operation::user\index[]
+== User Single
+operation::user\single[]
+
